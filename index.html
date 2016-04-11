@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Lottery wheel poc</title>
+	<style>
+	
+	</style>
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="1000"></canvas>
+
+<button type="button" id="spindamnit">Spin!</button>
+<script src="wheel.js"></script>
+<script>
+	Lottery.Wheel.init();
+$('#spindamnit').on('click', function() {
+	Lottery.Wheel.spin();
+});
+</script>
+</body>
+</html>
