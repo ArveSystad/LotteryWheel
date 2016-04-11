@@ -2,20 +2,59 @@
 <head>
 	<title>Lottery wheel poc</title>
 	<style>
-	
+	body,html { font-family: sans-serif; }
+	#canvas { width: 800px; height: 800px; float: left;}
+	#controls { float: left; margin: 0 2em;}
+	#controls label, #controls input, #controls button { display: block; margin-top: .6em;}
+	#playerList { margin: 2em 0; }
+	#playerList li { padding: 5px; font-weight: bold; color:#FFF; }
+
+	#spinButton { width: 200px; height: 40px;}
+	.winner { font-size: 2.5em; border: 2px solid black;}
 	</style>
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 </head>
 <body>
-<canvas id="canvas" width="1000" height="1000"></canvas>
+<canvas id="canvas" width="800" height="800"></canvas>
 
-<button type="button" id="spindamnit">Spin!</button>
+<div id="controls">
+	<label for="ticketOwnerName">Name</label>
+	<input type="text" id="ticketOwnerName">
+
+	<label for="ticketCount">Number of tickets</label>
+	<input type="text" id="ticketCount">
+
+	<button type="button" id="addTickets">Add tickets</button>
+
+	<button type="button" id="quickAdd">Quick add 5*5 tickets</button>
+	
+	<button type="button" id="spinButton">Spin!</button>
+
+	<ul id="playerList">
+
+	</div>
+</div>
+
+
+
 <script src="wheel.js"></script>
 <script>
 	Lottery.Wheel.init();
-$('#spindamnit').on('click', function() {
-	Lottery.Wheel.spin();
-});
+	$('#spinButton').on('click', function() {
+		Lottery.Wheel.spin();
+	});
+
+	$('#addTickets').on('click', function() {
+		Lottery.Wheel.addTickets($('#ticketOwnerName').val(), $('#ticketCount').val());
+	})
+
+	$('#quickAdd').on('click', function() {
+		Lottery.Wheel.addTickets("Foo", 5);
+		Lottery.Wheel.addTickets("Bar", 5);
+		Lottery.Wheel.addTickets("Baz", 5);
+		Lottery.Wheel.addTickets("Boo", 5);
+		Lottery.Wheel.addTickets("Fez", 5);
+	})
 </script>
 </body>
 </html>
