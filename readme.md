@@ -1,3 +1,3 @@
-Just prototyping and testing and playing around. Lottery wheel.
+Just prototyping, testing and playing around. Wee.
 
 Demo so far on http://asystad.net/lottery/index.html
